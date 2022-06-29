@@ -55,10 +55,10 @@ We will be evaluating
 
 
 ### Issues
-1. Fix Topping functionality (1f choose pizza without topping - disable option to add topping or add them for extra money)
+1. Fix Topping functionality (If choose pizza without topping - disable option to add topping or add them for extra money)
 2. Add regex verification for email and telephone fields
-3. Add boundary values verification for Quantity field (could put negative or © and the cost for order will be with minus)
-4. It's possible to put double or string values into Quantity field (When put string into Quantity filed, cost become Nan, but it is possible to confirm order)
+3. Add boundary values verification for Quantity field (could put negative or 0 and the cost for order will be with minus)
+4. It's possible to put double or String values into Quantity field (When put string into Quantity filed, cost become NaN, but it is possible to confirm order)
 5. Make payment information option required to be chosen
 6. Add information about quantity of ordered pizzas in confirmation dialog
 7. Able to order with no Pizza selected

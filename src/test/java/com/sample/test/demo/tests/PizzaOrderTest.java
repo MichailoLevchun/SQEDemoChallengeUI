@@ -11,7 +11,7 @@ import static org.testng.Assert.assertEquals;
 
 public class PizzaOrderTest extends TestBase {
 
-    @Test(description = "HappyPath - Create order with Pizza and 1 topping")
+    @Test(description = "Happy Path - Create order with Pizza and 1 topping")
     public void createOrderWithPizzaAndOneTopping() {
 
         PizzaItem pizzaItem = PizzaItem.builder()

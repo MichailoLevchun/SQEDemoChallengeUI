@@ -1,6 +1,8 @@
 package com.sample.test.demo;
 
 import static org.testng.Assert.fail;
+
+import com.sample.test.demo.actions.PizzaOrderActions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -11,6 +13,7 @@ public class TestBase {
     private Configuration config;
     protected WebDriver driver;
     protected String url;
+    protected PizzaOrderActions pizzaOrderActions;
 
     @BeforeClass(alwaysRun = true)
     public void init() throws Throwable {
@@ -18,6 +21,9 @@ public class TestBase {
         url = config.getUrl();
         initializelDriver();
         navigateToSite();
+
+        pizzaOrderActions = new PizzaOrderActions(driver);
+
     }
 
     private void navigateToSite() {

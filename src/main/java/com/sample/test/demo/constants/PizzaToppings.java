@@ -12,7 +12,9 @@ public enum PizzaToppings {
     PROVOLNE("Provolone cheese"),
     EXTRACHEESE("Extra cheese"),
     MOZZARELLA("Mozzarella cheese"),
-    PARMASAN("Parmesan cheese")
+    PARMASAN("Parmesan cheese"),
+    EMPTY_TOPPING1("Choose a Toppings 1"),
+    EMPTY_TOPPING2("Choose a Toppings 2")
 
     ;
 

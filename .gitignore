@@ -3,3 +3,6 @@
 .classpath
 .project
 /bin/
+/.idea/
+/.idea/uiDesigner.xml
+/src/test/resources/chromedriver/mac/chromedriver

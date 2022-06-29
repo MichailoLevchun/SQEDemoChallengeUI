@@ -31,8 +31,12 @@ public class PizzaOrderFormPO {
     WebElement placeOrderButton;
     @FindBy(id = "reset")
     WebElement resetButton;
+    @FindBy(css = "#dialog")
+    WebElement orderDialog;
     @FindBy(css = "#dialog > p")
     WebElement orderDialogText;
+    @FindBy(css = "#errorMsg")
+    WebElement errorMsg;
 
     public PizzaOrderFormPO(WebDriver driver) {
         PageFactory.initElements(driver, this);

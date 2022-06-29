@@ -1,4 +1,4 @@
-package com.sample.test.demo;
+package com.sample.test.demo.core;
 
 import static org.testng.Assert.fail;
 
@@ -35,7 +35,7 @@ public class TestBase {
         try {
             driver.quit();
 
-        } catch (Exception e) {
+        } catch (Exception ignored) {
         }
     }
 

@@ -3,7 +3,11 @@
 	<test name="Tests">
 		<!-- Enter group name to execute specific set of tests -->
 		<groups>
-			
+			<run>
+				<include name="happy path"/>
+				<include name="negative"/>
+				<include name="boundary"/>
+			</run>
 		</groups>
 		<!-- List individual packages to execute below -->
 		<packages>

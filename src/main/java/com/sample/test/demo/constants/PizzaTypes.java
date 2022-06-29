@@ -2,6 +2,7 @@ package com.sample.test.demo.constants;
 
 
 public enum PizzaTypes {
+    DEFAULT_PIZZA("- $00.00", 0.0),
     SMALL_NOTOPPINGS("Small 6 Slices - no toppings", 6.75),
     SMALL_ONETOPPINGS("Small 6 Slices - 1 topping", 7.50),
     MEDIUM_TWOTOPPINGS("Medium 8 Slices - 2 toppings", 9.75),

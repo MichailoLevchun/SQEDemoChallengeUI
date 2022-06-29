@@ -47,7 +47,11 @@ We will be evaluating
 
 #### Test Cases
 
- 1. 
+ 1. Happy Path - Create order with Pizza and 1 topping
+ 2. Negative - Create order with no pizza
+ 3. Boundary - Create order with zero quantity
+ 4. Boundary - Input letter in number field
+ 5. Boundary - Input number with 2 digits
 
 
 #### Improvements

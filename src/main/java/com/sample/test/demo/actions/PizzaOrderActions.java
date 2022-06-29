@@ -1,6 +1,7 @@
 package com.sample.test.demo.actions;
 
 import com.sample.test.demo.constants.PizzaToppings;
+import com.sample.test.demo.constants.PizzaTypes;
 import com.sample.test.demo.models.ContactInfo;
 import com.sample.test.demo.models.PizzaItem;
 import com.sample.test.demo.pages.PizzaOrderFormPO;
@@ -8,12 +9,11 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.Optional;
 
-import static com.sample.test.demo.utils.WebElementUtils.*;
-import static com.sample.test.demo.utils.WebElementUtils.click;
-import static org.apache.maven.surefire.shade.booter.org.apache.commons.lang3.StringUtils.SPACE;
-import static org.testng.Assert.assertEquals;
+import static com.sample.test.demo.utils.StringUtils.concatCreatePizzaOrderDialogMessage;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
 
-public class PizzaOrderActions {
+public class PizzaOrderActions extends BaseActions{
     private PizzaOrderFormPO pizzaOrderFormPO;
 
     public PizzaOrderActions(WebDriver driver) {
@@ -22,6 +22,13 @@ public class PizzaOrderActions {
 
     public PizzaOrderActions addPizzaToOrder(PizzaItem pizzaItem) {
         selectByValue(pizzaOrderFormPO.getPizzaSelect(), pizzaItem.getPizzaType().getDisplayName());
+
+        selectByValue(pizzaOrderFormPO.getPizzaSelect(), Optional
+                .ofNullable(
+                        pizzaItem.getPizzaType())
+                .orElse(PizzaTypes.DEFAULT_PIZZA)
+                .getDisplayName()
+        );
 
         selectByText(pizzaOrderFormPO.getToppings1Select(), Optional
                 .ofNullable(
@@ -69,9 +76,15 @@ public class PizzaOrderActions {
     }
 
     public void verifyPizzaOrderCreatedMessage(PizzaItem pizzaItem) {
-        assertEquals(getText(pizzaOrderFormPO.getOrderDialogText()),
-                "Thank you for your order! TOTAL: " + (int) pizzaItem.getPizzaType().getCost() * pizzaItem.getQuantity()
-                        + SPACE + pizzaItem.getPizzaType().getDisplayName(),
-                "Message is not correct");
+        verifyTextOnWebElement(pizzaOrderFormPO.getOrderDialogText(),
+                concatCreatePizzaOrderDialogMessage(pizzaItem));
+    }
+
+    public void verifyErrorMessagePresent(String msg) {
+        verifyTextOnWebElement(pizzaOrderFormPO.getErrorMsg(), msg);
+    }
+
+    public void verifySuccessCreatedDialogIsNotDisplayed() {
+        assertFalse(isElementDisplayed(pizzaOrderFormPO.getOrderDialog()), "Dialog is present");
     }
 }

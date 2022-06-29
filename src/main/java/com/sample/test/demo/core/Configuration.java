@@ -1,5 +1,6 @@
-package com.sample.test.demo;
+package com.sample.test.demo.core;
 
+import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,11 +20,11 @@ public class Configuration {
     private void loadProperties() {
         configProperties = new Properties();
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        assertTrue(classLoader != null);
+        assertNotNull(classLoader);
         InputStream inputStream = classLoader.getResourceAsStream(CONFIG_FILE_NAME);
         try {
             configProperties.load(inputStream);
-        } catch (final IOException e) {
+        } catch (final IOException ignored) {
         }
     }
 

@@ -4,45 +4,46 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import static org.apache.maven.surefire.shade.booter.org.apache.commons.lang3.StringUtils.SPACE;
 import static org.testng.Assert.assertEquals;
 
 public class BaseActions {
 
+    private static final String ID = "id";
+
     protected Logger log = Logger.getLogger(BaseActions.class.getName());
 
     public void click(WebElement element) {
-        log.info("Click on element " + element.getAttribute("id"));
+        log.info("Click on element " + element.getAttribute(ID));
         element.click();
     }
 
     public void input(WebElement element, int text) {
-        log.info("Input " + text + " into element " + element.getAttribute("id"));
+        log.info("Input " + text + " into element " + element.getAttribute(ID));
         element.clear();
         element.sendKeys("" + text);
     }
 
     public void input(WebElement element, String text) {
-        log.info("Input " + text + " into element " + element.getAttribute("id"));
+        log.info("Input " + text + " into element " + element.getAttribute(ID));
         element.clear();
         element.sendKeys(text);
     }
 
     public void selectByText(WebElement element, String text) {
-        log.info("Select dropdown with text  " + text + " on element " + element.getAttribute("id"));
+        log.info("Select dropdown with text  " + text + " on element " + element.getAttribute(ID));
         Select select = new Select(element);
         select.selectByVisibleText(text);
     }
 
     public void selectByValue(WebElement element, String value) {
-        log.info("Select dropdown with value  " + value + " on element " + element.getAttribute("id"));
+        log.info("Select dropdown with value  " + value + " on element " + element.getAttribute(ID));
         Select select = new Select(element);
         select.selectByValue(value);
     }
 
     public String getText(WebElement element) {
         String text = element.getText();
-        log.info("Get text   " + text + " from element " + element.getAttribute("id"));
+        log.info("Get text   " + text + " from element " + element.getAttribute(ID));
         return element.getText();
     }
 
